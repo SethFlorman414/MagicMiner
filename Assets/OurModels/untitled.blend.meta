@@ -1,0 +1,161 @@
+fileFormatVersion: 2
+guid: a8e46b8cfe1c8814cbe54cd07f431892
+timeCreated: 1517347537
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Cerchio
+    100002: Cerchio_001
+    100004: Cerchio_002
+    100006: Cilindro
+    100008: Cilindro_001
+    100010: Cilindro_002
+    100012: Curva_Bezier
+    100014: Curva_Bezier_001
+    100016: Curva_Bezier_002
+    100018: Curva_Bezier_003
+    100020: Piano
+    100022: Piano_001
+    100024: Piano_002
+    100026: //RootNode
+    400000: Cerchio
+    400002: Cerchio_001
+    400004: Cerchio_002
+    400006: Cilindro
+    400008: Cilindro_001
+    400010: Cilindro_002
+    400012: Curva_Bezier
+    400014: Curva_Bezier_001
+    400016: Curva_Bezier_002
+    400018: Curva_Bezier_003
+    400020: Piano
+    400022: Piano_001
+    400024: Piano_002
+    400026: //RootNode
+    2100000: base
+    2100002: emissione
+    2100004: Material
+    2100006: vetro
+    2100008: base__old-lantern-isolated-2809184_jpg
+    2300000: Cerchio
+    2300002: Cerchio_001
+    2300004: Cerchio_002
+    2300006: Cilindro
+    2300008: Cilindro_001
+    2300010: Cilindro_002
+    2300012: Curva_Bezier
+    2300014: Curva_Bezier_001
+    2300016: Curva_Bezier_002
+    2300018: Curva_Bezier_003
+    2300020: Piano
+    2300022: Piano_001
+    2300024: Piano_002
+    3300000: Cerchio
+    3300002: Cerchio_001
+    3300004: Cerchio_002
+    3300006: Cilindro
+    3300008: Cilindro_001
+    3300010: Cilindro_002
+    3300012: Curva_Bezier
+    3300014: Curva_Bezier_001
+    3300016: Curva_Bezier_002
+    3300018: Curva_Bezier_003
+    3300020: Piano
+    3300022: Piano_001
+    3300024: Piano_002
+    4300000: Cilindro_001
+    4300002: Curva_Bezier_003
+    4300004: Cerchio_002
+    4300006: Piano_002
+    4300008: Piano_001
+    4300010: Piano
+    4300012: Cilindro_002
+    4300014: Curva_Bezier_002
+    4300016: Curva_Bezier_001
+    4300018: Curva_Bezier
+    4300020: Cerchio_001
+    4300022: Cilindro
+    4300024: Cerchio
+    7400000: Default Take
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

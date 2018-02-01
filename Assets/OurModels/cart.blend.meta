@@ -1,0 +1,165 @@
+fileFormatVersion: 2
+guid: cefa588bc8899da4690968581865f164
+timeCreated: 1517344009
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Armature_001
+    100004: Axel
+    100006: Axel_-_Large
+    100008: Borders_-_1
+    100010: Borders_-_2
+    100012: Borders_-_2_support
+    100014: //RootNode
+    100016: Empty
+    100018: Ground
+    100020: Platform_-_1
+    100022: Platform_-_2
+    100024: Support
+    100026: Support_-_1
+    100028: Support_-_2
+    100030: Support_0
+    100032: Wheel
+    100034: Wheel_0
+    100036: Wheels
+    100038: Wheels_-_Large
+    400000: Armature
+    400002: Armature_001
+    400004: Axel
+    400006: Axel_-_Large
+    400008: Borders_-_1
+    400010: Borders_-_2
+    400012: Borders_-_2_support
+    400014: //RootNode
+    400016: Empty
+    400018: Ground
+    400020: Platform_-_1
+    400022: Platform_-_2
+    400024: Support
+    400026: Support_-_1
+    400028: Support_-_2
+    400030: Support_0
+    400032: Wheel
+    400034: Wheel_0
+    400036: Wheels
+    400038: Wheels_-_Large
+    2100000: Dark_wood
+    2100002: Dirty_wood_uv
+    2100004: leather_brown
+    2100006: Wood
+    2100008: Old_wood_rotated
+    2100010: Old_wood
+    2100012: Wood_rotated
+    2100014: Wood_uv
+    2100016: Granite
+    2300000: Ground
+    3300000: Ground
+    4300000: Borders_-_2_support
+    4300002: Borders_-_2
+    4300004: Wheels_-_Large
+    4300006: Axel_-_Large
+    4300008: Support_-_2
+    4300010: Platform_-_2
+    4300012: Wheels
+    4300014: Axel
+    4300016: Support_-_1
+    4300018: Borders_-_1
+    4300020: Platform_-_1
+    4300022: Ground
+    7400000: Default Take
+    7400002: Wheel_front_back
+    7400004: Wheel_front_back_001
+    9500000: //RootNode
+    13700000: Axel
+    13700002: Axel_-_Large
+    13700004: Borders_-_1
+    13700006: Borders_-_2
+    13700008: Borders_-_2_support
+    13700010: Platform_-_1
+    13700012: Platform_-_2
+    13700014: Support_-_1
+    13700016: Support_-_2
+    13700018: Wheels
+    13700020: Wheels_-_Large
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
