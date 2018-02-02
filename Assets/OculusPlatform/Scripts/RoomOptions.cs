@@ -22,7 +22,6 @@ namespace Oculus.Platform
       CAPI.ovr_RoomOptions_ClearDataStore(Handle);
     }
 
-<<<<<<< HEAD
     public void SetExcludeRecentlyMet(bool value) {
       CAPI.ovr_RoomOptions_SetExcludeRecentlyMet(Handle, value);
     }
@@ -31,19 +30,14 @@ namespace Oculus.Platform
       CAPI.ovr_RoomOptions_SetMaxUserResults(Handle, value);
     }
 
-=======
->>>>>>> 5e75a601dea9046f7ce486fed92fcb2bf062f478
     public void SetOrdering(UserOrdering value) {
       CAPI.ovr_RoomOptions_SetOrdering(Handle, value);
     }
 
-<<<<<<< HEAD
     public void SetRecentlyMetTimeWindow(TimeWindow value) {
       CAPI.ovr_RoomOptions_SetRecentlyMetTimeWindow(Handle, value);
     }
 
-=======
->>>>>>> 5e75a601dea9046f7ce486fed92fcb2bf062f478
     public void SetRoomId(UInt64 value) {
       CAPI.ovr_RoomOptions_SetRoomId(Handle, value);
     }

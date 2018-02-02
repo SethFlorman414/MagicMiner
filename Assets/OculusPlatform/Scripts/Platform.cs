@@ -666,7 +666,6 @@ namespace Oculus.Platform
       return null;
     }
 
-<<<<<<< HEAD
     /// Launches a different application in the user's library. If the user does
     /// not have that application installed, they will be taken to that app's page
     /// in the Oculus Store
@@ -730,8 +729,6 @@ namespace Oculus.Platform
       return null;
     }
 
-=======
->>>>>>> 5e75a601dea9046f7ce486fed92fcb2bf062f478
   }
 
   public static partial class Avatar
@@ -855,7 +852,6 @@ namespace Oculus.Platform
       return null;
     }
 
-<<<<<<< HEAD
     /// Note: Cloud Storage is only available for Rift apps.
     ///
     /// Send a save data buffer to the platform. CloudStorage.Save() passes a
@@ -864,9 +860,6 @@ namespace Oculus.Platform
     ///
     /// If the data is destroyed or modified prior to receiving that message the
     /// data will not be saved.
-=======
-    /// Send a save data buffer to the platform.
->>>>>>> 5e75a601dea9046f7ce486fed92fcb2bf062f478
     /// \param bucket The name of the storage bucket.
     /// \param key The name for this saved data.
     /// \param data Start of the data block.
@@ -1343,7 +1336,6 @@ namespace Oculus.Platform
 
   }
 
-<<<<<<< HEAD
   public static partial class Media
   {
     /// Launch the Share to Facebook modal via a deeplink to Home on Gear VR,
@@ -1369,8 +1361,6 @@ namespace Oculus.Platform
 
   }
 
-=======
->>>>>>> 5e75a601dea9046f7ce486fed92fcb2bf062f478
   public static partial class Notifications
   {
     /// Retrieve a list of all pending room invites for your application (for
@@ -1510,7 +1500,6 @@ namespace Oculus.Platform
     }
 
     /// Loads a list of users you can invite to a room. These are pulled from your
-<<<<<<< HEAD
     /// friends list and recently met lists and filtered for relevance and
     /// interest. If the room cannot be joined, this list will be empty. By
     /// default, the invitable users returned will be for the user's current room.
@@ -1540,31 +1529,12 @@ namespace Oculus.Platform
     /// rooms with this user in the result. Also, see the above comment.
     ///
     /// Example custom C++ usage:
-=======
-    /// friends list and filtered for relevance and interest. If the room cannot be
-    /// joined, this list will be empty. By default, the invitable users returned
-    /// will be for the user's current room.
-    ///
-    /// Customization can be done via RoomOptions. Create this object with
-    /// ovr_RoomOptions_Create. The params that could be used are:
-    ///
-    /// 1. roomID - will return the invitable users for this room (instead of the
-    /// current room).
-    ///
-    /// 2. ordering - returns the list of users in the provided ordering (see
-    /// UserOrdering enum).
-    ///
-    /// Example usage:
->>>>>>> 5e75a601dea9046f7ce486fed92fcb2bf062f478
     ///
     ///   auto roomOptions = ovr_RoomOptions_Create();
     ///   ovr_RoomOptions_SetOrdering(roomOptions, ovrUserOrdering_PresenceAlphabetical);
     ///   ovr_RoomOptions_SetRoomId(roomOptions, roomID);
     ///   ovr_Room_GetInvitableUsers2(roomOptions);
-<<<<<<< HEAD
     ///   ovr_RoomOptions_Destroy(roomOptions);
-=======
->>>>>>> 5e75a601dea9046f7ce486fed92fcb2bf062f478
     /// \param roomOptions Additional configuration for this request. Optional.
     ///
     public static Request<Models.UserList> GetInvitableUsers2(RoomOptions roomOptions = null)
@@ -1818,7 +1788,6 @@ namespace Oculus.Platform
     /// and the amount of time they spend together.
     ///
     /// Customization can be done via UserOptions. Create this object with
-<<<<<<< HEAD
     /// UserOptions(). The params that could be used are:
     ///
     /// 1. UserOptions.SetTimeWindow() - how recently should the users have played?
@@ -1827,16 +1796,6 @@ namespace Oculus.Platform
     /// 2. UserOptions.SetMaxUsers() - we will limit the number of results
     /// returned. By default, the number is unlimited, but the server may choose to
     /// limit results for performance reasons.
-=======
-    /// ovr_UserOptions_Create. The params that could be used are:
-    ///
-    /// 1. TimeWindow - how recently should the users have played? The default is
-    /// ovrTimeWindow_ThirtyDays.
-    ///
-    /// 2. MaxUsers - we will limit the number of results returned. By default, the
-    /// number is unlimited, but the server may choose to limit results for
-    /// performance reasons.
->>>>>>> 5e75a601dea9046f7ce486fed92fcb2bf062f478
     /// \param userOptions Additional configuration for this request. Optional.
     ///
     public static Request<Models.UserAndRoomList> GetLoggedInUserRecentlyMetUsersAndRooms(UserOptions userOptions = null)

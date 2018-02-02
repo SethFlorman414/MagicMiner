@@ -4,7 +4,6 @@ folderAsset: yes
 timeCreated: 1444263910
 licenseType: Store
 PluginImporter:
-<<<<<<< HEAD
   externalObjects: {}
   serializedVersion: 2
   iconMap: {}
@@ -36,14 +35,6 @@ PluginImporter:
   - first:
       Standalone: OSXUniversal
     second:
-=======
-  serializedVersion: 1
-  iconMap: {}
-  executionOrder: {}
-  isPreloaded: 0
-  platformData:
-    Any:
->>>>>>> 5e75a601dea9046f7ce486fed92fcb2bf062f478
       enabled: 1
       settings: {}
   userData: 
