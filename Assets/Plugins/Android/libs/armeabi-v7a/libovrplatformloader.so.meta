@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 76174f8a8f9f3443784f42f0dcbeb8e9
 timeCreated: 1509386664
 PluginImporter:
@@ -26,6 +27,19 @@ PluginImporter:
       enabled: 0
       settings:
         DefaultValueInitialized: true
+=======
+guid: a37fa39727487449992acd8f0652bd51
+timeCreated: 1504763541
+PluginImporter:
+  serializedVersion: 1
+  iconMap: {}
+  executionOrder: {}
+  isPreloaded: 0
+  platformData:
+    Any:
+      enabled: 1
+      settings: {}
+>>>>>>> 5e75a601dea9046f7ce486fed92fcb2bf062f478
   userData: 
   assetBundleName: 
   assetBundleVariant: 

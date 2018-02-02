@@ -8,7 +8,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: 75ff95057d2254be3ad0e94392c88fcb, type: 3}
+=======
+  m_Script: {fileID: 11500000, guid: 6e271656ef4224b53bb39c8e9618c648, type: 3}
+>>>>>>> 5e75a601dea9046f7ce486fed92fcb2bf062f478
   m_Name: OculusPlatformSettings
   m_EditorClassIdentifier: 
   ovrAppID: 

@@ -76,10 +76,13 @@ namespace Oculus.Platform
       ApplicationLifecycle_GetSessionKey                  = 0x3AAF591D,
       ApplicationLifecycle_RegisterSessionKey             = 0x4DB6AFF8,
       Application_GetVersion                              = 0x68670A0E,
+<<<<<<< HEAD
       Application_LaunchOtherApp                          = 0x54E2D1F8,
       AssetFile_Delete                                    = 0x6D5D7886,
       AssetFile_Download                                  = 0x11449FC5,
       AssetFile_DownloadCancel                            = 0x080AD3C7,
+=======
+>>>>>>> 5e75a601dea9046f7ce486fed92fcb2bf062f478
       CloudStorage_Delete                                 = 0x28DA456D,
       CloudStorage_GetNextCloudStorageMetadataArrayPage   = 0x5C07A2EF,
       CloudStorage_Load                                   = 0x40846B41,
@@ -122,7 +125,10 @@ namespace Oculus.Platform
       Matchmaking_JoinRoom                                = 0x4D32D7FD,
       Matchmaking_ReportResultInsecure                    = 0x1A36D18D,
       Matchmaking_StartMatch                              = 0x44D40945,
+<<<<<<< HEAD
       Media_ShareToFacebook                               = 0x00E38AEF,
+=======
+>>>>>>> 5e75a601dea9046f7ce486fed92fcb2bf062f478
       Notification_GetNextRoomInviteNotificationArrayPage = 0x0621FB77,
       Notification_GetRoomInvites                         = 0x6F916B92,
       Notification_MarkAsRead                             = 0x717259E3,
@@ -161,6 +167,7 @@ namespace Oculus.Platform
       User_LaunchProfile                                  = 0x0A397297,
       Voip_SetSystemVoipSuppressed                        = 0x453FC9AA,
 
+<<<<<<< HEAD
       /// Sent when a launch intent is received (for both cold and warm starts). The
       /// payload is the type of the intent. ApplicationLifecycle.GetLaunchDetails()
       /// should be called to get the other details.
@@ -169,6 +176,8 @@ namespace Oculus.Platform
       /// Sent to indicate download progress for asset files.
       Notification_AssetFile_DownloadUpdate = 0x2FDD0CCD,
 
+=======
+>>>>>>> 5e75a601dea9046f7ce486fed92fcb2bf062f478
       /// Sent to indicate that more data has been read or an error occured.
       Notification_HTTP_Transfer = 0x7DD46E2F,
 
@@ -257,10 +266,13 @@ namespace Oculus.Platform
     public virtual AchievementProgressList GetAchievementProgressList() { return null; }
     public virtual AchievementUpdate GetAchievementUpdate() { return null; }
     public virtual ApplicationVersion GetApplicationVersion() { return null; }
+<<<<<<< HEAD
     public virtual AssetFileDeleteResult GetAssetFileDeleteResult() { return null; }
     public virtual AssetFileDownloadCancelResult GetAssetFileDownloadCancelResult() { return null; }
     public virtual AssetFileDownloadResult GetAssetFileDownloadResult() { return null; }
     public virtual AssetFileDownloadUpdate GetAssetFileDownloadUpdate() { return null; }
+=======
+>>>>>>> 5e75a601dea9046f7ce486fed92fcb2bf062f478
     public virtual CloudStorageConflictMetadata GetCloudStorageConflictMetadata() { return null; }
     public virtual CloudStorageData GetCloudStorageData() { return null; }
     public virtual CloudStorageMetadata GetCloudStorageMetadata() { return null; }
@@ -290,7 +302,10 @@ namespace Oculus.Platform
     public virtual RoomInviteNotificationList GetRoomInviteNotificationList() { return null; }
     public virtual RoomList GetRoomList() { return null; }
     public virtual SdkAccountList GetSdkAccountList() { return null; }
+<<<<<<< HEAD
     public virtual ShareMediaResult GetShareMediaResult() { return null; }
+=======
+>>>>>>> 5e75a601dea9046f7ce486fed92fcb2bf062f478
     public virtual string GetString() { return null; }
     public virtual SystemPermission GetSystemPermission() { return null; }
     public virtual SystemVoipState GetSystemVoipState() { return null; }
@@ -298,7 +313,10 @@ namespace Oculus.Platform
     public virtual UserAndRoomList GetUserAndRoomList() { return null; }
     public virtual UserList GetUserList() { return null; }
     public virtual UserProof GetUserProof() { return null; }
+<<<<<<< HEAD
     public virtual UserReportID GetUserReportID() { return null; }
+=======
+>>>>>>> 5e75a601dea9046f7ce486fed92fcb2bf062f478
 
     internal static Message ParseMessageHandle(IntPtr messageHandle)
     {
@@ -334,6 +352,7 @@ namespace Oculus.Platform
           message = new MessageWithApplicationVersion(messageHandle);
           break;
 
+<<<<<<< HEAD
         case Message.MessageType.AssetFile_Delete:
           message = new MessageWithAssetFileDeleteResult(messageHandle);
           break;
@@ -350,6 +369,8 @@ namespace Oculus.Platform
           message = new MessageWithAssetFileDownloadUpdate(messageHandle);
           break;
 
+=======
+>>>>>>> 5e75a601dea9046f7ce486fed92fcb2bf062f478
         case Message.MessageType.CloudStorage_LoadConflictMetadata:
           message = new MessageWithCloudStorageConflictMetadata(messageHandle);
           break;
@@ -503,6 +524,7 @@ namespace Oculus.Platform
           message = new MessageWithSdkAccountList(messageHandle);
           break;
 
+<<<<<<< HEAD
         case Message.MessageType.Media_ShareToFacebook:
           message = new MessageWithShareMediaResult(messageHandle);
           break;
@@ -510,6 +532,9 @@ namespace Oculus.Platform
         case Message.MessageType.ApplicationLifecycle_GetSessionKey:
         case Message.MessageType.Application_LaunchOtherApp:
         case Message.MessageType.Notification_ApplicationLifecycle_LaunchIntentChanged:
+=======
+        case Message.MessageType.ApplicationLifecycle_GetSessionKey:
+>>>>>>> 5e75a601dea9046f7ce486fed92fcb2bf062f478
         case Message.MessageType.Notification_Room_InviteAccepted:
         case Message.MessageType.User_GetAccessToken:
           message = new MessageWithString(messageHandle);
@@ -653,6 +678,7 @@ namespace Oculus.Platform
     }
 
   }
+<<<<<<< HEAD
   public class MessageWithAssetFileDeleteResult : Message<AssetFileDeleteResult>
   {
     public MessageWithAssetFileDeleteResult(IntPtr c_message) : base(c_message) { }
@@ -701,6 +727,8 @@ namespace Oculus.Platform
     }
 
   }
+=======
+>>>>>>> 5e75a601dea9046f7ce486fed92fcb2bf062f478
   public class MessageWithCloudStorageConflictMetadata : Message<CloudStorageConflictMetadata>
   {
     public MessageWithCloudStorageConflictMetadata(IntPtr c_message) : base(c_message) { }
@@ -1061,6 +1089,7 @@ namespace Oculus.Platform
     }
 
   }
+<<<<<<< HEAD
   public class MessageWithShareMediaResult : Message<ShareMediaResult>
   {
     public MessageWithShareMediaResult(IntPtr c_message) : base(c_message) { }
@@ -1073,6 +1102,8 @@ namespace Oculus.Platform
     }
 
   }
+=======
+>>>>>>> 5e75a601dea9046f7ce486fed92fcb2bf062f478
   public class MessageWithString : Message<string>
   {
     public MessageWithString(IntPtr c_message) : base(c_message) { }
@@ -1154,6 +1185,7 @@ namespace Oculus.Platform
     }
 
   }
+<<<<<<< HEAD
   public class MessageWithUserReportID : Message<UserReportID>
   {
     public MessageWithUserReportID(IntPtr c_message) : base(c_message) { }
@@ -1166,6 +1198,8 @@ namespace Oculus.Platform
     }
 
   }
+=======
+>>>>>>> 5e75a601dea9046f7ce486fed92fcb2bf062f478
 
   public class MessageWithNetworkingPeer : Message<NetworkingPeer>
   {

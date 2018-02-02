@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 4c9f76ef198ea402ab8ae7f704ee4d3f
 timeCreated: 1509386660
+=======
+guid: a44dba6e26d6c478a9678d236c2fbcb5
+timeCreated: 1504763537
+>>>>>>> 5e75a601dea9046f7ce486fed92fcb2bf062f478
 MonoImporter:
   serializedVersion: 2
   defaultReferences: []
