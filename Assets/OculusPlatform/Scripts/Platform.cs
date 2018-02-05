@@ -666,69 +666,6 @@ namespace Oculus.Platform
       return null;
     }
 
-    /// Launches a different application in the user's library. If the user does
-    /// not have that application installed, they will be taken to that app's page
-    /// in the Oculus Store
-    /// \param appID The ID of the app to launch
-    /// \param deeplink_options Additional configuration for this requests. Optional.
-    ///
-    public static Request<string> LaunchOtherApp(UInt64 appID, ApplicationOptions deeplink_options = null)
-    {
-      if (Core.IsInitialized())
-      {
-        return new Request<string>(CAPI.ovr_Application_LaunchOtherApp(appID, (IntPtr)deeplink_options));
-      }
-
-      return null;
-    }
-
-  }
-
-  public static partial class AssetFile
-  {
-    /// Removes an previously installed asset file from the device by its ID.
-    /// Returns an object containing the asset file ID and a success flag.
-    /// \param assetFileID The asset file ID
-    ///
-    public static Request<Models.AssetFileDeleteResult> Delete(UInt64 assetFileID)
-    {
-      if (Core.IsInitialized())
-      {
-        return new Request<Models.AssetFileDeleteResult>(CAPI.ovr_AssetFile_Delete(assetFileID));
-      }
-
-      return null;
-    }
-
-    /// Downloads an asset file by its ID on demand. Returns an object containing
-    /// filepath on the file system. Sends periodic
-    /// MessageType.Notification_AssetFile_DownloadUpdate to track the downloads.
-    /// \param assetFileID The asset file ID
-    ///
-    public static Request<Models.AssetFileDownloadResult> Download(UInt64 assetFileID)
-    {
-      if (Core.IsInitialized())
-      {
-        return new Request<Models.AssetFileDownloadResult>(CAPI.ovr_AssetFile_Download(assetFileID));
-      }
-
-      return null;
-    }
-
-    /// Cancels a previously spawned download request for an asset file by its ID.
-    /// Returns an object containing asset file ID, and the success flag.
-    /// \param assetFileID The asset file ID
-    ///
-    public static Request<Models.AssetFileDownloadCancelResult> DownloadCancel(UInt64 assetFileID)
-    {
-      if (Core.IsInitialized())
-      {
-        return new Request<Models.AssetFileDownloadCancelResult>(CAPI.ovr_AssetFile_DownloadCancel(assetFileID));
-      }
-
-      return null;
-    }
-
   }
 
   public static partial class Avatar
@@ -852,14 +789,7 @@ namespace Oculus.Platform
       return null;
     }
 
-    /// Note: Cloud Storage is only available for Rift apps.
-    ///
-    /// Send a save data buffer to the platform. CloudStorage.Save() passes a
-    /// pointer to your data in an async call. You need to maintain the save data
-    /// until you receive the message indicating that the save was successful.
-    ///
-    /// If the data is destroyed or modified prior to receiving that message the
-    /// data will not be saved.
+    /// Send a save data buffer to the platform.
     /// \param bucket The name of the storage bucket.
     /// \param key The name for this saved data.
     /// \param data Start of the data block.
@@ -1336,31 +1266,6 @@ namespace Oculus.Platform
 
   }
 
-  public static partial class Media
-  {
-    /// Launch the Share to Facebook modal via a deeplink to Home on Gear VR,
-    /// allowing users to share local media files to Facebook. Accepts a
-    /// postTextSuggestion string for the default text of the Facebook post.
-    /// Requires a filePath string as the path to the image to be shared to
-    /// Facebook. This image should be located in your app's internal storage
-    /// directory. Requires a contentType indicating the type of media to be shared
-    /// (only 'photo' is currently supported.)
-    /// \param postTextSuggestion this text will prepopulate the facebook status text-input box within the share modal
-    /// \param filePath path to the file to be shared to facebook
-    /// \param contentType content type of the media to be shared
-    ///
-    public static Request<Models.ShareMediaResult> ShareToFacebook(string postTextSuggestion, string filePath, MediaContentType contentType)
-    {
-      if (Core.IsInitialized())
-      {
-        return new Request<Models.ShareMediaResult>(CAPI.ovr_Media_ShareToFacebook(postTextSuggestion, filePath, contentType));
-      }
-
-      return null;
-    }
-
-  }
-
   public static partial class Notifications
   {
     /// Retrieve a list of all pending room invites for your application (for
@@ -1500,41 +1405,25 @@ namespace Oculus.Platform
     }
 
     /// Loads a list of users you can invite to a room. These are pulled from your
-    /// friends list and recently met lists and filtered for relevance and
-    /// interest. If the room cannot be joined, this list will be empty. By
-    /// default, the invitable users returned will be for the user's current room.
-    ///
-    /// If your application grouping was created after September 9 2017, recently
-    /// met users will be included by default. If your application grouping was
-    /// created before then, you can go to edit the setting in the "Rooms and
-    /// Matchmaking" section of Platform Services at dashboard.oculus.com
+    /// friends list and filtered for relevance and interest. If the room cannot be
+    /// joined, this list will be empty. By default, the invitable users returned
+    /// will be for the user's current room.
     ///
     /// Customization can be done via RoomOptions. Create this object with
-    /// RoomOptions(). The params that could be used are:
+    /// ovr_RoomOptions_Create. The params that could be used are:
     ///
-    /// 1. RoomOptions.SetRoomId()- will return the invitable users for this room
-    /// (instead of the current room).
+    /// 1. roomID - will return the invitable users for this room (instead of the
+    /// current room).
     ///
-    /// 2. RoomOptions.SetOrdering() - returns the list of users in the provided
-    /// ordering (see UserOrdering enum).
+    /// 2. ordering - returns the list of users in the provided ordering (see
+    /// UserOrdering enum).
     ///
-    /// 3. RoomOptions.SetRecentlyMetTimeWindow() - how long long ago should we
-    /// include users you've recently met in the results?
-    ///
-    /// 4. RoomOptions.SetMaxUserResults() - we will limit the number of results
-    /// returned. By default, the number is unlimited, but the server may choose to
-    /// limit results for performance reasons.
-    ///
-    /// 5. RoomOptions.SetExcludeRecentlyMet() - Don't include users recently in
-    /// rooms with this user in the result. Also, see the above comment.
-    ///
-    /// Example custom C++ usage:
+    /// Example usage:
     ///
     ///   auto roomOptions = ovr_RoomOptions_Create();
     ///   ovr_RoomOptions_SetOrdering(roomOptions, ovrUserOrdering_PresenceAlphabetical);
     ///   ovr_RoomOptions_SetRoomId(roomOptions, roomID);
     ///   ovr_Room_GetInvitableUsers2(roomOptions);
-    ///   ovr_RoomOptions_Destroy(roomOptions);
     /// \param roomOptions Additional configuration for this request. Optional.
     ///
     public static Request<Models.UserList> GetInvitableUsers2(RoomOptions roomOptions = null)
@@ -1788,14 +1677,14 @@ namespace Oculus.Platform
     /// and the amount of time they spend together.
     ///
     /// Customization can be done via UserOptions. Create this object with
-    /// UserOptions(). The params that could be used are:
+    /// ovr_UserOptions_Create. The params that could be used are:
     ///
-    /// 1. UserOptions.SetTimeWindow() - how recently should the users have played?
-    /// The default is TimeWindow.ThirtyDays.
+    /// 1. TimeWindow - how recently should the users have played? The default is
+    /// ovrTimeWindow_ThirtyDays.
     ///
-    /// 2. UserOptions.SetMaxUsers() - we will limit the number of results
-    /// returned. By default, the number is unlimited, but the server may choose to
-    /// limit results for performance reasons.
+    /// 2. MaxUsers - we will limit the number of results returned. By default, the
+    /// number is unlimited, but the server may choose to limit results for
+    /// performance reasons.
     /// \param userOptions Additional configuration for this request. Optional.
     ///
     public static Request<Models.UserAndRoomList> GetLoggedInUserRecentlyMetUsersAndRooms(UserOptions userOptions = null)

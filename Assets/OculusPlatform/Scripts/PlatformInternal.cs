@@ -42,8 +42,6 @@ namespace Oculus.Platform
       Room_GetSocialRooms                           = 0x61881D76,
       SystemPermissions_GetStatus                   = 0x1D6A2C09,
       SystemPermissions_LaunchDeeplink              = 0x1A5A8431,
-      User_LaunchBlockFlow                          = 0x6FD62528,
-      User_LaunchReportFlow                         = 0x5662A011,
       User_NewEntitledTestUser                      = 0x11741F03,
       User_NewTestUser                              = 0x36E84F8C,
       User_NewTestUserFriends                       = 0x1ED726C7
@@ -62,7 +60,6 @@ namespace Oculus.Platform
         case MessageTypeInternal.Livestreaming_StopPartyStream:
         case MessageTypeInternal.Livestreaming_UpdateMicStatus:
         case MessageTypeInternal.Party_Leave:
-        case MessageTypeInternal.User_LaunchBlockFlow:
           message = new Message(messageHandle);
           break;
 
@@ -127,10 +124,6 @@ namespace Oculus.Platform
         case MessageTypeInternal.SystemPermissions_GetStatus:
         case MessageTypeInternal.SystemPermissions_LaunchDeeplink:
           message = new MessageWithSystemPermission(messageHandle);
-          break;
-
-        case MessageTypeInternal.User_LaunchReportFlow:
-          message = new MessageWithUserReportID(messageHandle);
           break;
 
       }

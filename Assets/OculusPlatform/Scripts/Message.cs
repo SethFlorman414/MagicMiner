@@ -76,10 +76,6 @@ namespace Oculus.Platform
       ApplicationLifecycle_GetSessionKey                  = 0x3AAF591D,
       ApplicationLifecycle_RegisterSessionKey             = 0x4DB6AFF8,
       Application_GetVersion                              = 0x68670A0E,
-      Application_LaunchOtherApp                          = 0x54E2D1F8,
-      AssetFile_Delete                                    = 0x6D5D7886,
-      AssetFile_Download                                  = 0x11449FC5,
-      AssetFile_DownloadCancel                            = 0x080AD3C7,
       CloudStorage_Delete                                 = 0x28DA456D,
       CloudStorage_GetNextCloudStorageMetadataArrayPage   = 0x5C07A2EF,
       CloudStorage_Load                                   = 0x40846B41,
@@ -122,7 +118,6 @@ namespace Oculus.Platform
       Matchmaking_JoinRoom                                = 0x4D32D7FD,
       Matchmaking_ReportResultInsecure                    = 0x1A36D18D,
       Matchmaking_StartMatch                              = 0x44D40945,
-      Media_ShareToFacebook                               = 0x00E38AEF,
       Notification_GetNextRoomInviteNotificationArrayPage = 0x0621FB77,
       Notification_GetRoomInvites                         = 0x6F916B92,
       Notification_MarkAsRead                             = 0x717259E3,
@@ -160,14 +155,6 @@ namespace Oculus.Platform
       User_GetUserProof                                   = 0x22810483,
       User_LaunchProfile                                  = 0x0A397297,
       Voip_SetSystemVoipSuppressed                        = 0x453FC9AA,
-
-      /// Sent when a launch intent is received (for both cold and warm starts). The
-      /// payload is the type of the intent. ApplicationLifecycle.GetLaunchDetails()
-      /// should be called to get the other details.
-      Notification_ApplicationLifecycle_LaunchIntentChanged = 0x04B34CA3,
-
-      /// Sent to indicate download progress for asset files.
-      Notification_AssetFile_DownloadUpdate = 0x2FDD0CCD,
 
       /// Sent to indicate that more data has been read or an error occured.
       Notification_HTTP_Transfer = 0x7DD46E2F,
@@ -257,10 +244,6 @@ namespace Oculus.Platform
     public virtual AchievementProgressList GetAchievementProgressList() { return null; }
     public virtual AchievementUpdate GetAchievementUpdate() { return null; }
     public virtual ApplicationVersion GetApplicationVersion() { return null; }
-    public virtual AssetFileDeleteResult GetAssetFileDeleteResult() { return null; }
-    public virtual AssetFileDownloadCancelResult GetAssetFileDownloadCancelResult() { return null; }
-    public virtual AssetFileDownloadResult GetAssetFileDownloadResult() { return null; }
-    public virtual AssetFileDownloadUpdate GetAssetFileDownloadUpdate() { return null; }
     public virtual CloudStorageConflictMetadata GetCloudStorageConflictMetadata() { return null; }
     public virtual CloudStorageData GetCloudStorageData() { return null; }
     public virtual CloudStorageMetadata GetCloudStorageMetadata() { return null; }
@@ -290,7 +273,6 @@ namespace Oculus.Platform
     public virtual RoomInviteNotificationList GetRoomInviteNotificationList() { return null; }
     public virtual RoomList GetRoomList() { return null; }
     public virtual SdkAccountList GetSdkAccountList() { return null; }
-    public virtual ShareMediaResult GetShareMediaResult() { return null; }
     public virtual string GetString() { return null; }
     public virtual SystemPermission GetSystemPermission() { return null; }
     public virtual SystemVoipState GetSystemVoipState() { return null; }
@@ -298,7 +280,6 @@ namespace Oculus.Platform
     public virtual UserAndRoomList GetUserAndRoomList() { return null; }
     public virtual UserList GetUserList() { return null; }
     public virtual UserProof GetUserProof() { return null; }
-    public virtual UserReportID GetUserReportID() { return null; }
 
     internal static Message ParseMessageHandle(IntPtr messageHandle)
     {
@@ -332,22 +313,6 @@ namespace Oculus.Platform
 
         case Message.MessageType.Application_GetVersion:
           message = new MessageWithApplicationVersion(messageHandle);
-          break;
-
-        case Message.MessageType.AssetFile_Delete:
-          message = new MessageWithAssetFileDeleteResult(messageHandle);
-          break;
-
-        case Message.MessageType.AssetFile_DownloadCancel:
-          message = new MessageWithAssetFileDownloadCancelResult(messageHandle);
-          break;
-
-        case Message.MessageType.AssetFile_Download:
-          message = new MessageWithAssetFileDownloadResult(messageHandle);
-          break;
-
-        case Message.MessageType.Notification_AssetFile_DownloadUpdate:
-          message = new MessageWithAssetFileDownloadUpdate(messageHandle);
           break;
 
         case Message.MessageType.CloudStorage_LoadConflictMetadata:
@@ -503,13 +468,7 @@ namespace Oculus.Platform
           message = new MessageWithSdkAccountList(messageHandle);
           break;
 
-        case Message.MessageType.Media_ShareToFacebook:
-          message = new MessageWithShareMediaResult(messageHandle);
-          break;
-
         case Message.MessageType.ApplicationLifecycle_GetSessionKey:
-        case Message.MessageType.Application_LaunchOtherApp:
-        case Message.MessageType.Notification_ApplicationLifecycle_LaunchIntentChanged:
         case Message.MessageType.Notification_Room_InviteAccepted:
         case Message.MessageType.User_GetAccessToken:
           message = new MessageWithString(messageHandle);
@@ -650,54 +609,6 @@ namespace Oculus.Platform
       var msg = CAPI.ovr_Message_GetNativeMessage(c_message);
       var obj = CAPI.ovr_Message_GetApplicationVersion(msg);
       return new ApplicationVersion(obj);
-    }
-
-  }
-  public class MessageWithAssetFileDeleteResult : Message<AssetFileDeleteResult>
-  {
-    public MessageWithAssetFileDeleteResult(IntPtr c_message) : base(c_message) { }
-    public override AssetFileDeleteResult GetAssetFileDeleteResult() { return Data; }
-    protected override AssetFileDeleteResult GetDataFromMessage(IntPtr c_message)
-    {
-      var msg = CAPI.ovr_Message_GetNativeMessage(c_message);
-      var obj = CAPI.ovr_Message_GetAssetFileDeleteResult(msg);
-      return new AssetFileDeleteResult(obj);
-    }
-
-  }
-  public class MessageWithAssetFileDownloadCancelResult : Message<AssetFileDownloadCancelResult>
-  {
-    public MessageWithAssetFileDownloadCancelResult(IntPtr c_message) : base(c_message) { }
-    public override AssetFileDownloadCancelResult GetAssetFileDownloadCancelResult() { return Data; }
-    protected override AssetFileDownloadCancelResult GetDataFromMessage(IntPtr c_message)
-    {
-      var msg = CAPI.ovr_Message_GetNativeMessage(c_message);
-      var obj = CAPI.ovr_Message_GetAssetFileDownloadCancelResult(msg);
-      return new AssetFileDownloadCancelResult(obj);
-    }
-
-  }
-  public class MessageWithAssetFileDownloadResult : Message<AssetFileDownloadResult>
-  {
-    public MessageWithAssetFileDownloadResult(IntPtr c_message) : base(c_message) { }
-    public override AssetFileDownloadResult GetAssetFileDownloadResult() { return Data; }
-    protected override AssetFileDownloadResult GetDataFromMessage(IntPtr c_message)
-    {
-      var msg = CAPI.ovr_Message_GetNativeMessage(c_message);
-      var obj = CAPI.ovr_Message_GetAssetFileDownloadResult(msg);
-      return new AssetFileDownloadResult(obj);
-    }
-
-  }
-  public class MessageWithAssetFileDownloadUpdate : Message<AssetFileDownloadUpdate>
-  {
-    public MessageWithAssetFileDownloadUpdate(IntPtr c_message) : base(c_message) { }
-    public override AssetFileDownloadUpdate GetAssetFileDownloadUpdate() { return Data; }
-    protected override AssetFileDownloadUpdate GetDataFromMessage(IntPtr c_message)
-    {
-      var msg = CAPI.ovr_Message_GetNativeMessage(c_message);
-      var obj = CAPI.ovr_Message_GetAssetFileDownloadUpdate(msg);
-      return new AssetFileDownloadUpdate(obj);
     }
 
   }
@@ -1061,18 +972,6 @@ namespace Oculus.Platform
     }
 
   }
-  public class MessageWithShareMediaResult : Message<ShareMediaResult>
-  {
-    public MessageWithShareMediaResult(IntPtr c_message) : base(c_message) { }
-    public override ShareMediaResult GetShareMediaResult() { return Data; }
-    protected override ShareMediaResult GetDataFromMessage(IntPtr c_message)
-    {
-      var msg = CAPI.ovr_Message_GetNativeMessage(c_message);
-      var obj = CAPI.ovr_Message_GetShareMediaResult(msg);
-      return new ShareMediaResult(obj);
-    }
-
-  }
   public class MessageWithString : Message<string>
   {
     public MessageWithString(IntPtr c_message) : base(c_message) { }
@@ -1151,18 +1050,6 @@ namespace Oculus.Platform
       var msg = CAPI.ovr_Message_GetNativeMessage(c_message);
       var obj = CAPI.ovr_Message_GetUserProof(msg);
       return new UserProof(obj);
-    }
-
-  }
-  public class MessageWithUserReportID : Message<UserReportID>
-  {
-    public MessageWithUserReportID(IntPtr c_message) : base(c_message) { }
-    public override UserReportID GetUserReportID() { return Data; }
-    protected override UserReportID GetDataFromMessage(IntPtr c_message)
-    {
-      var msg = CAPI.ovr_Message_GetNativeMessage(c_message);
-      var obj = CAPI.ovr_Message_GetUserReportID(msg);
-      return new UserReportID(obj);
     }
 
   }
