@@ -32,6 +32,7 @@ namespace VRTK.Highlighters
         protected Dictionary<string, Material[]> originalRendererMaterials = new Dictionary<string, Material[]>();
         protected Dictionary<string, Coroutine> faderRoutines;
         protected bool resetMainTexture = false;
+        private Texture value;
 
         /// <summary>
         /// The Initialise method sets up the highlighter for use.
@@ -143,7 +144,7 @@ namespace VRTK.Highlighters
 
                     if (resetMainTexture && material.HasProperty("_MainTex"))
                     {
-                        renderer.material.SetTexture("_MainTex", new Texture());
+                        renderer.material.SetTexture("_MainTex", value); //Texture());
                     }
 
                     if (material.HasProperty("_Color"))
