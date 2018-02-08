@@ -8,6 +8,7 @@ public class SavingHealth : MonoBehaviour {
 
     public int toxins;
     public GameObject pillBottle;
+    public GameObject particleHealth;
     
 
 	void Start () {
@@ -18,20 +19,22 @@ public class SavingHealth : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
 
+        toxins = PlayerPrefs.GetInt("Toxins");
 
 	}
 
 
-   public void OnCollisionEnter(Collision collision)
+   public void OnControllerColliderHit(ControllerColliderHit collision)
     {
-
+        
         if(collision.gameObject.tag == "health")
         {
-
+            
             PlayerPrefs.SetInt("Toxins", PlayerPrefs.GetInt("Toxins") - 15);
+            Debug.Log(toxins);
             Destroy(pillBottle);
+            Destroy(particleHealth);
             
 
         }
